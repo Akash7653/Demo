@@ -64,7 +64,7 @@ const Signup = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", form);
+      const res = await axios.post("https://demo-yt1z.onrender.com/api/auth/register", form);
       setMessage(res.data.message || "User registered successfully");
       localStorage.setItem("token", res.data.token);
       setForm(initialState);
