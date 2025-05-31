@@ -83,23 +83,6 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-// Example in your POST /register or wherever you create user
-const { previousLoan, ...otherFields } = req.body;
-
-// Normalize previousLoan to boolean
-let previousLoanBool;
-if (typeof previousLoan === "string") {
-  previousLoanBool = previousLoan.toLowerCase() === "yes" || previousLoan.toLowerCase() === "true";
-} else if (typeof previousLoan === "boolean") {
-  previousLoanBool = previousLoan;
-} else {
-  previousLoanBool = false; // default fallback
-}
-
-const newUser = new User({
-  ...otherFields,
-  previousLoan: previousLoanBool,
-});
 
 
 module.exports = router;
